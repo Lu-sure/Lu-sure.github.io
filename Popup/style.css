@@ -34,11 +34,6 @@ body {
   padding: 3px;
 }
 
-.nav-text-item:focus {
-  outline: none;
-  border: 2px solid rgb(145, 181, 248);
-}
-
 .popup-bottom:hover {
   text-decoration: underline;
 }
@@ -55,7 +50,7 @@ body {
   padding: 2px;
 }
 
-.nav-img-item:focus, .nav-img-item:hover {
+.nav-img-item:focus, .nav-img-item:hover, .nav-text-item:focus, .nav-text-item:hover {
   outline: none;
   border: 2px solid rgb(145, 181, 248);
 }
