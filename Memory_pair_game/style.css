@@ -44,6 +44,14 @@ body {
     perspective: 1000px;
 }
 
+.hide {
+    visibility: hidden;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
 .card-inner {
     background-color: white;
     justify-content: center;
@@ -89,45 +97,45 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .board {
-      max-width: 700px;
-      height: auto;
-    }
-    .card {
-      height: 160px;
-      width: 145px;
-    }
-    .new-game-button {
-      font-size: 1em;
-      height: 40px;
-    }
+  .board {
+    max-width: 700px;
+    height: auto;
   }
+  .card {
+    height: 160px;
+    width: 145px;
+  }
+  .new-game-button {
+    font-size: 1em;
+    height: 40px;
+  }
+}
 
-  @media (max-width: 650px) {
-    .card {
-      height: 135px;
-      width: 120px;
-    }
+@media (max-width: 650px) {
+  .card {
+    height: 135px;
+    width: 120px;
   }
-  @media (max-width: 540px) {
-    .card {
-      height: 110px;
-      width: 100px;
-    }
+}
+@media (max-width: 540px) {
+  .card {
+    height: 110px;
+    width: 100px;
   }
-  @media (max-width: 455px) {
-    .card {
-      height: 90px;
-      width: 80px;
-    }
+}
+@media (max-width: 455px) {
+  .card {
+    height: 90px;
+    width: 80px;
   }
-  @media (max-width: 370px) {
-    .board {
-      height: auto;
-    }
-    .new-game-button {
-      font-size: 0.8em;
-      height: 50px;
-      width: 50px;
-    }
+}
+@media (max-width: 370px) {
+  .board {
+    height: auto;
   }
+  .new-game-button {
+    font-size: 0.8em;
+    height: 50px;
+    width: 50px;
+  }
+}
