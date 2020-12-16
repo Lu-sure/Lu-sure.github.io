@@ -48,7 +48,8 @@ body {
     visibility: hidden;
 }
 
-.card:hover {
+.card:hover,
+.new-game-button:hover {
     cursor: pointer;
 }
 
@@ -65,9 +66,13 @@ body {
 
 .pic {
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
     display: block;
     margin: 0 auto;
+}
+
+.pic-fill-width {
+    width: 100%;
 }
 
 .card-back, .card-front {

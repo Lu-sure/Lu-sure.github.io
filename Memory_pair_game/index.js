@@ -1,14 +1,15 @@
 const htmlBoard = document.getElementById('board');
 const newGameButton = document.getElementById('new-game');
+const htmlScore = document.createElement('p');
 const cards = [];
 const numberOfCards = 12;
 const images = [
-    {url: 'img/tree0.svg', times: 0},
-    {url: 'img/tree1.svg', times: 0},
-    {url: 'img/tree2.svg', times: 0},
-    {url: 'img/tree3.svg', times: 0},
-    {url: 'img/tree4.svg', times: 0},
-    {url: 'img/tree5.svg', times: 0}];
+    {url: 'img/tree0.png', times: 0},
+    {url: 'img/tree1.png', times: 0},
+    {url: 'img/tree2.png', times: 0},
+    {url: 'img/tree3.png', times: 0},
+    {url: 'img/tree4.png', times: 0},
+    {url: 'img/tree5.png', times: 0}];
 const flipDelay = 800;
 const greeting = `Got 3, be smart)`;
 let score;
@@ -50,7 +51,7 @@ class Card {
         const cardBack = document.createElement('div');
         const back = document.createElement('img');
         back.setAttribute('src', 'img/back.jpg');
-        back.classList.add('pic');
+        back.classList.add('pic', 'pic-fill-width');
         cardBack.appendChild(back);
         cardBack.classList.add('card-back');
 
@@ -68,8 +69,6 @@ class Card {
         this.htmlEl.appendChild(this.htmlElInner);
     }
 }
-
-const htmlScore = document.createElement('p');
 
 const renderScore = () => {
     htmlScore.innerHTML = `Your score:  ${score}.`;
@@ -94,25 +93,27 @@ const randomizeImage = function(images) {
     return images[rand].times < 3 ? images[rand].url : randomizeImage(images);
 }
 
-const cardsSet = document.createDocumentFragment();
 
 const setCardsSet = function() {
+    const cardsSet = document.createDocumentFragment();
+
     for (let i = 0; i < numberOfCards; i++) {
         cards[i] = new Card(i);
         cardsSet.appendChild(cards[i].htmlEl);
     }
+
+    return cardsSet;
 }
 
 const render = function () {
-    setCardsSet();
-    htmlBoard.append(cardsSet);
+    htmlBoard.append(setCardsSet());
 
     htmlBoard.addEventListener('click', ( {target} ) => {
         if (cards.filter(card => card.isOpen).length === 2) return;
-
+        if (target === htmlBoard) return;
         const id = target.closest(".card").getAttribute("data-idx");
         const card = cards.find(x => x.id == id);
-        if (card.isMatched === true) return;
+        if (card.isMatched) return;
 
         card.openCard();
         checkMatch();
@@ -128,14 +129,13 @@ const checkMatch = function() {
 
     setTimeout(() => {
         if (openCards[0].frontPic === openCards[1].frontPic) {
-            openCards.forEach(card => card.setMatched());
+            openCards.forEach(card => {card.setMatched(); card.isOpen = false});
             ++score;
         } else {
-            openCards.forEach(card => card.unflip());
+            openCards.forEach(card => {card.unflip(); card.isOpen = false});
             --score;
         }
         renderScore();
-        openCards.forEach(card => card.isOpen = false);
     }, flipDelay);
 }
 
