@@ -56,7 +56,7 @@ const contentArray = [
 const body = document.querySelector("body");
 const side = document.getElementById("side");
 const main = document.getElementById("hero");
-const sideButton = document.getElementById("side-button");
+const burgerButton = document.getElementById("burger-button");
 
 const renderSide = function () {
   const ul = document.createElement("ul");
@@ -129,12 +129,12 @@ const changeContent = function (index) {
 renderSide();
 render(0);
 
-sideButton.addEventListener("click", function () {
+burgerButton.addEventListener("click", function () {
   side.classList.add("open");
 });
 
 document.addEventListener("click", ({ target }) => {
-  if (!side.contains(target) && !sideButton.contains(target)) {
+  if (!side.contains(target) && !burgerButton.contains(target)) {
     side.classList.remove("open");
   }
 });
