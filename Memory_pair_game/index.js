@@ -4,12 +4,12 @@ const htmlScore = document.createElement('p');
 const cards = [];
 const numberOfCards = 12;
 const images = [
-    {url: 'img/tree0.png', times: 0},
-    {url: 'img/tree1.png', times: 0},
-    {url: 'img/tree2.png', times: 0},
-    {url: 'img/tree3.png', times: 0},
-    {url: 'img/tree4.png', times: 0},
-    {url: 'img/tree5.png', times: 0}];
+    {url: 'img/tree0.svg', times: 0},
+    {url: 'img/tree1.svg', times: 0},
+    {url: 'img/tree2.svg', times: 0},
+    {url: 'img/tree3.svg', times: 0},
+    {url: 'img/tree4.svg', times: 0},
+    {url: 'img/tree5.svg', times: 0}];
 const flipDelay = 800;
 const greeting = `Got 3, be smart)`;
 let score;
