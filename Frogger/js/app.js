@@ -20,10 +20,10 @@ const PLAYER_CONFIG = {
     sprite: 'images/char-boy.png',
     startPos: {x: 2 * BLOCK_WIDTH, y: MOVE_AREA.height.start},
     winPositionY: BLOCK_HEIGHT-HEIGHT_SHIFT,
-    thickness: 80
+    thickness: 60
 };
 
-const DELAY_OF_COLLISION = 80;
+const DELAY_OF_COLLISION = 50;
 const DELAY_OF_WIN = 200;
 
 function getRandomInteger(min, max) {
